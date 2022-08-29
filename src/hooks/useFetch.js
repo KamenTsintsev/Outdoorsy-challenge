@@ -10,7 +10,7 @@ export default function useFetch(url) {
         setData(null);
         setError(null);
 
-        fetch(url, (data = { method: "GET" }))
+        fetch(url, { method: "GET" })
             .then((response) => {
                 if (response.ok !== true) {
                     setError(response.json());
