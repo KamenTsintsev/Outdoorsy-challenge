@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import Search from "../utils/Search";
 
 export default function Dashboard() {
     const [data, setData] = useState([]);
 
     return (
         <>
-            <h1>Hii</h1>
+            <header>
+                <Search setData={setData} />
+            </header>
         </>
     );
 }
