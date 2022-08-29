@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link } from "react-router-dom";
+
+import Dashboard from "./components/Dashboard/Dashboard";
+import logo from "./images/outdoorsy-inc-logo-vector.png";
+
+import "./App.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <header>
+                <a href={"https://www.outdoorsy.com/"}>
+                    <img src={logo} alt="Outdoorsy's logo" className="logo" />
+                </a>
+            </header>
+            <main className="mainContent">
+                <Dashboard />
+            </main>
+        </>
+    );
 }
 
 export default App;
