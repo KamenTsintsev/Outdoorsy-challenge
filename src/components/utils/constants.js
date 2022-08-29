@@ -1,6 +1,6 @@
 const constants = {
     endpoints: {
-        url: "https://search.outdoorsy.com/rentals",
+        baseUrl: "https://search.outdoorsy.com/",
     },
     limit: 4,
 };
