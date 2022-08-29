@@ -6,21 +6,24 @@ import useFetch from "../../hooks/useFetch";
 export default function Search({ setData }) {
     const [keywords, setKeywords] = useState("");
     const [offset, setOffset] = useState(0);
-    const { endpoints, limit } = constants;
-    const { data, loading, error } = useFetch(endpoints.url);
+    const [url, setUrl] = useState("rentals");
+    const { data, loading, error } = useFetch(url);
+    const { limit } = constants;
 
-    console.log(data);
-    let url = `${endpoints.url}?page[limit]=${limit}&page[offset]=${offset}`;
+    useEffect(() => {
+        setUrl(`rentals?page[limit]=${limit}&page[offset]=${offset}`);
 
-    if (keywords) {
-        url = `${endpoints.url}?filter[keywords]=${keywords}&page[limit]=${limit}&page[offset]=${offset}`;
-    }
+        if (keywords) {
+            setUrl(
+                `rentals?filter[keywords]=${keywords}&page[limit]=${limit}&page[offset]=${offset}`
+            );
+        }
+        setData(data, loading, error);
+    }, [keywords]);
 
     return (
         <>
-            <header>
-                <SearchField setKeywords={setKeywords} />
-            </header>
+            <SearchField setKeywords={setKeywords} />
         </>
     );
 }
