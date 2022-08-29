@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
+import constants from "../components/utils/constants";
 
 export default function useFetch(url) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
+    const { endpoints } = constants;
 
     useEffect(() => {
         setLoading("loading...");
         setData(null);
         setError(null);
 
-        fetch(url, { method: "GET" })
+        fetch(endpoints.baseUrl + url, { method: "GET" })
             .then((response) => {
                 if (response.ok !== true) {
                     setError(response.json());
