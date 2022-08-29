@@ -3,15 +3,15 @@ import ProductList from "../ProductList/ProductList";
 import Search from "../utils/Search";
 
 export default function Dashboard() {
-    const [data, setData] = useState([]);
-
+    const [response, setResponse] = useState({});
+    console.log(response);
     return (
         <>
             <header>
-                <Search setData={setData} />
+                <Search setResponse={setResponse} />
             </header>
             <main>
-                <ProductList data={data} />
+                <ProductList response={response} />
             </main>
         </>
     );

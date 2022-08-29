@@ -3,7 +3,7 @@ import SearchField from "./SearchField";
 import constants from "./constants.js";
 import useFetch from "../../hooks/useFetch";
 
-export default function Search({ setData }) {
+export default function Search({ setResponse }) {
     const [keywords, setKeywords] = useState("");
     const [offset, setOffset] = useState(0);
     const [url, setUrl] = useState("rentals");
@@ -18,7 +18,8 @@ export default function Search({ setData }) {
                 `rentals?filter[keywords]=${keywords}&page[limit]=${limit}&page[offset]=${offset}`
             );
         }
-        setData(data, loading, error);
+
+        setResponse([data?.data, loading, error]);
     }, [keywords]);
 
     return (
