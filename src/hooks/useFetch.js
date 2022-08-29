@@ -3,12 +3,12 @@ import constants from "../components/utils/constants";
 
 export default function useFetch(url) {
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const { endpoints } = constants;
 
     useEffect(() => {
-        setLoading(true);
+        setIsLoading(true);
         setData(null);
         setError(null);
 
@@ -25,14 +25,14 @@ export default function useFetch(url) {
                 }
             })
             .then((response) => {
-                setLoading(false);
+                setIsLoading(false);
                 setData(response);
             })
             .catch((err) => {
-                setLoading(false);
+                setIsLoading(false);
                 setError(err);
             });
     }, [url]);
 
-    return { data, loading, error };
+    return { data, isLoading, error };
 }
