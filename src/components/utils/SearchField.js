@@ -4,12 +4,15 @@ export default function SearchField({ setKeywords }) {
     const [searchField, setSearchField] = useState("");
 
     const onInputChangeHandler = (e) => {
-        setSearchField((prevState) => {
-            const inputData = prevState + e.target.value;
-
-            console.log(inputData);
-        });
+        setSearchField(e.target.value);
     };
+
+    useEffect(() => {
+        let queryString = "";
+        queryString = searchField.replaceAll(" ", "%20");
+
+        setKeywords(queryString);
+    }, [searchField]);
 
     return (
         <form action="GET">
