@@ -2,17 +2,27 @@ import { useState, useEffect } from "react";
 
 export default function SearchField({ setKeywords }) {
     const [searchField, setSearchField] = useState("");
+    const [inputValue, setInputValue] = useState("");
 
     const onInputChangeHandler = (e) => {
-        setSearchField(e.target.value);
+        setInputValue(e.target.value);
     };
 
-    useEffect(() => {
-        let queryString = "";
-        queryString = searchField.replaceAll(" ", "%20");
+    // "truck " ->
 
+    useEffect(() => {
+        if (searchField === inputValue) return;
+        if (inputValue.replace(searchField, "").trim().length === 0) return;
+
+        let queryString = "";
+        queryString = inputValue
+            .split(" ")
+            .filter((el) => el !== "")
+            .join("%20");
+
+        setSearchField(inputValue);
         setKeywords(queryString);
-    }, [searchField]);
+    }, [inputValue]);
 
     return (
         <form action="GET">
@@ -21,7 +31,7 @@ export default function SearchField({ setKeywords }) {
                 name="searchField"
                 id="searchField"
                 placeholder="Search"
-                value={searchField || ""}
+                value={inputValue || ""}
                 onChange={onInputChangeHandler}
             />
         </form>
