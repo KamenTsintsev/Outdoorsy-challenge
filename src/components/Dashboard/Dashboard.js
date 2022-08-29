@@ -4,7 +4,6 @@ import Search from "../utils/Search";
 
 export default function Dashboard() {
     const [response, setResponse] = useState({});
-    console.log(response);
     return (
         <>
             <header>
