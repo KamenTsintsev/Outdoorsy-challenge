@@ -18,7 +18,7 @@ export default function useFetch(url) {
                     setError(response.json());
                 }
 
-                if (response.status == 204) {
+                if (response.status === 204) {
                     return response;
                 } else {
                     return response.json();
@@ -32,7 +32,7 @@ export default function useFetch(url) {
                 setIsLoading(false);
                 setError(err);
             });
-    }, [url]);
+    }, [url, endpoints.baseUrl]);
 
     return { data, isLoading, error };
 }
