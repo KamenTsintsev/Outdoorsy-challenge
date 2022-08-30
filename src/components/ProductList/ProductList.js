@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
+import style from "./ProductList.module.scss";
+
 export default function ProductList({ response }) {
     const [data, setData] = useState(null);
     const [included, setIncluded] = useState(null);
@@ -28,5 +30,9 @@ export default function ProductList({ response }) {
         console.log(productList);
     }, [response, data, included, isLoading, error]);
 
-    return <ul>{!isLoading ? productList : "Loading..."}</ul>;
+    return (
+        <ul className={style.productList}>
+            {!isLoading ? productList : "Loading..."}
+        </ul>
+    );
 }
