@@ -10,7 +10,7 @@ export default function SearchField({ setKeywords }) {
         () => {
             setDebounceValue(inputValue);
         },
-        500,
+        1000,
         [inputValue]
     );
 
