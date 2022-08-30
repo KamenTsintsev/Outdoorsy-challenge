@@ -18,11 +18,7 @@ export default function useFetch(url) {
                     setError(response.json());
                 }
 
-                if (response.status === 204) {
-                    return response;
-                } else {
-                    return response.json();
-                }
+                return response.json();
             })
             .then((response) => {
                 setIsLoading(false);
