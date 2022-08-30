@@ -1,6 +1,6 @@
 # To run the project"
 
-## First install the dependencies
+1. First install the dependencies
 
 ### `npm i`
 
