@@ -31,7 +31,7 @@ export default function ProductList({ response }) {
 
     return (
         <ul className={style.productList}>
-            {!isLoading ? productList : "Loading..."}
+            {!isLoading ? productList : <p>Loading...</p>}
         </ul>
     );
 }
