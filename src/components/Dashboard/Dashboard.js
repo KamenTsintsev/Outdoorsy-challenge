@@ -20,7 +20,7 @@ export default function Dashboard() {
             <header>
                 <Search setResponse={setResponse} limit={limit} />
             </header>
-            <main>
+            <main className={style.main}>
                 <ProductList response={data} />
                 {response?.data?.length > 0 ? (
                     <LoadMoreButton setLimit={setLimit} />
