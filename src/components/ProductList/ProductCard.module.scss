@@ -5,7 +5,9 @@
     align-items: center;
 
     height: 200px;
-    max-width: 40%;
+    max-height: 200px;
+    width: 50%;
+    max-width: 50%;
     margin-bottom: 20px;
 
     .imageHolder {
@@ -16,6 +18,10 @@
 
         width: 100%;
         height: 100%;
+        max-height: 200px;
+
+        background-color: #f4f4f4;
+        border-radius: 10px;
         // padding: 2px;
 
         .image {
