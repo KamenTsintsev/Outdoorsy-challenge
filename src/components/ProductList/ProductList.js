@@ -27,7 +27,6 @@ export default function ProductList({ response }) {
                 );
             })
         );
-        console.log(productList);
     }, [response, data, included, isLoading, error]);
 
     return (
