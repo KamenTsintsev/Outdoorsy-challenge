@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDebounce } from "react-use";
 
+import style from "./SearchField.module.scss";
+
 export default function SearchField({ setKeywords }) {
     const [searchField, setSearchField] = useState("");
     const [debounceValue, setDebounceValue] = useState("");
@@ -39,6 +41,7 @@ export default function SearchField({ setKeywords }) {
                 name="searchField"
                 id="searchField"
                 placeholder="Search"
+                className={style.searchField}
                 value={inputValue || ""}
                 onChange={onInputChangeHandler}
             />
