@@ -12,7 +12,7 @@ export default function ProductCard({ itemData, included }) {
                 item.type === "images" &&
                 item.id === itemData?.relationships?.primary_image?.data?.id
         );
-        setImage(result[0].attributes.url);
+        setImage(result[0]?.attributes.url);
     }, []);
 
     return (
