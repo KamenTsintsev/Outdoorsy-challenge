@@ -1,16 +1,15 @@
 # To run the project"
 
-1. First install the dependencies after cloning the repo
+1.  First install the dependencies after cloning the repo
 
-#### `npm install`
+    -   `npm install`
 
-2. Start the application:
+2.  Start the application:
+    In the project directory, you can run:
 
-In the project directory, you can run:
+    -   `npm start`
 
-#### `npm start`
-
-3. The API returns results depending on the user's location, so if there are no results, please consider using a VPN.
+3.  The API returns results depending on the user's location, so if there are no results, please consider using a VPN.
 
 ## What would I have done if I had a whole week
 
