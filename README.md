@@ -2,10 +2,10 @@
 
 1. First install the dependencies after cloning the repo
 
-### `npm install`
+#### `npm install`
 
 2. Start the application:
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
