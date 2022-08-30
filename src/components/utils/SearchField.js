@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
+import { useDebounce } from "react-use";
 
 export default function SearchField({ setKeywords }) {
     const [searchField, setSearchField] = useState("");
+    const [debounceValue, setDebounceValue] = useState("");
     const [inputValue, setInputValue] = useState("");
+
+    const [, cancel] = useDebounce(
+        () => {
+            setDebounceValue(inputValue);
+        },
+        500,
+        [inputValue]
+    );
 
     const onInputChangeHandler = (e) => {
         setInputValue(e.target.value);
     };
-
-    // "truck " ->
 
     useEffect(() => {
         if (searchField === inputValue) return;
@@ -22,7 +30,7 @@ export default function SearchField({ setKeywords }) {
 
         setSearchField(inputValue);
         setKeywords(queryString);
-    }, [inputValue]);
+    }, [debounceValue]);
 
     return (
         <form action="GET">
