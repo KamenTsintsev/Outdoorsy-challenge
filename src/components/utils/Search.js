@@ -22,7 +22,12 @@ export default function Search({ setResponse }) {
             setUrl(`rentals?page[limit]=${limit}&page[offset]=${offset}`);
         }
 
-        setResponse({ data: data?.data, isLoading, error });
+        setResponse({
+            data: data?.data,
+            included: data?.included,
+            isLoading,
+            error,
+        });
     }, [keywords]);
 
     return (
